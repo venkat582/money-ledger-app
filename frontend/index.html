@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Money Ledger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 10px;
+  }
+
+  h2, h3 {
+    margin: 10px 0;
+  }
+
+  .card {
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+
+  input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    font-size: 16px;
+  }
+
+  button {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+  }
+
+  button:active {
+    background: #0056b3;
+  }
+
+  .given {
+    border-left: 5px solid green;
+  }
+
+  .borrowed {
+    border-left: 5px solid red;
+    color: red;
+  }
+
+  .total-box {
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+  }
+
+  .green {
+    background: #eaffea;
+    color: green;
+  }
+
+  .red {
+    background: #ffecec;
+    color: red;
+  }
+
+  .net {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 15px;
+  }
+</style>
+
+</head>
+<body>
+
+<h2>Money Ledger</h2>
+
+<div id="login" class="card">
+  <h2>Login</h2>
+  <input id="name" placeholder="Your Name">
+  <input id="mobile" placeholder="Mobile Number">
+  <button onclick="login()">Login</button>
+</div>
+<button onclick="logout()" style="background:red">Logout</button>
+
+<div id="app" style="display:none">
+
+  <div class="card">
+    <h3>Add Record</h3>
+    <input id="personName" placeholder="Person Name">
+    <input id="amount" type="number" placeholder="Amount">
+    <input id="givenDate" type="date">
+    <select id="type">
+      <option value="LEND">Given (Lend)</option>
+      <option value="BORROW">Taken (Borrow)</option>
+    </select>
+    <button id="saveBtn" onclick="addLoan()">Save</button>
+    <!-- <button onclick="loadHistory()">History</button>
+ -->
+  </div>
+
+  <div id="list"></div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
