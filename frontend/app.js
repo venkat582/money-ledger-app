@@ -82,7 +82,7 @@ async function login() {
     return;
   }
 
-  const res = await fetch("/api/auth/login", {
+  const res = await fetch("https://money-ledger-app.onrender.com/api/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, mobile })
@@ -119,7 +119,7 @@ async function addLoan() {
     type
   };
 
-  const url = editId ? `/api/loans/${editId}` : "/api/loans/add";
+  const url = editId ? `https://money-ledger-app.onrender.com/api/loans/${editId}` : "/api/loans/add";
   const method = editId ? "PUT" : "POST";
 
   await fetch(url, {
@@ -141,7 +141,7 @@ async function addLoan() {
 /* ================= LOAD ================= */
 
 async function loadLoans() {
-  const res = await fetch(`/api/loans/${user._id}`);
+  const res = await fetch(`https://money-ledger-app.onrender.com/api/loans/${user._id}`);
   const loans = await res.json();
   window.allLoans = loans;
 
@@ -346,7 +346,7 @@ function editLoan(id) {
 
 async function closeLoan(id) {
   if (!confirm("Close this record?")) return;
-  await fetch(`/api/loans/close/${id}`, { method: "PUT" });
+  await fetch(`https://money-ledger-app.onrender.com/api/loans/close/${id}`, { method: "PUT" });
   loadLoans();
 }
 
