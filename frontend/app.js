@@ -119,7 +119,7 @@ async function addLoan() {
     type
   };
 
-  const url = editId ? `https://money-ledger-app.onrender.com/api/loans/${editId}` : "/api/loans/add";
+  const url = editId ? `/api/loans/${editId}` : "/api/loans/add";
   const method = editId ? "PUT" : "POST";
 
   await fetch(url, {
