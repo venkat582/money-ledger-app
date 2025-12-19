@@ -1,4 +1,5 @@
 const savedUser = localStorage.getItem("ledgerUser");
+const API_BASE = "https://money-ledger-app.onrender.com";
 
 if (savedUser) {
   user = JSON.parse(savedUser);
@@ -119,7 +120,10 @@ async function addLoan() {
     type
   };
 
-  const url = editId ? `/api/loans/${editId}` : "/api/loans/add";
+  const url = editId
+  ? `${API_BASE}/api/loans/${editId}`
+  : `${API_BASE}/api/loans/add`;
+
   const method = editId ? "PUT" : "POST";
 
   await fetch(url, {
